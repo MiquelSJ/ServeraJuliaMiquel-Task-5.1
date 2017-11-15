@@ -19,13 +19,13 @@ public class Connect {
             Statement stmt = con.createStatement();
 
 
-            ResultSet rs = stmt.executeQuery("SELECT name, address, website, telephone, type FROM students");
+            ResultSet rs = stmt.executeQuery("SELECT RES_NOM, RES_ADRECA, RES_WEB, RES_TELEFON, TRS_DESCRIPCIO FROM  RESTAURANTS R, TRESTAURANTS ");
             while (rs.next()) {
-                String name = rs.getString("name");
-                String address = rs.getString("address");
-                String website = rs.getString("website");
-                String telephone = rs.getString("telephone");
-                String type = rs.getString("type");
+                String name = rs.getString("RES_NOM");
+                String address = rs.getString("RES_ADRECA");
+                String website = rs.getString("RES_WEB");
+                String telephone = rs.getString("RES_TELEFON");
+                String type = rs.getString("TRS_DESCRIPCIO");
 
                 Restaurants std = new Restaurants();
                 std.setName(name);
