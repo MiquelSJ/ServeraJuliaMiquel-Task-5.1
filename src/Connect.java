@@ -19,7 +19,7 @@ public class Connect {
             Statement stmt = con.createStatement();
 
 
-            ResultSet rs = stmt.executeQuery("SELECT RES_NOM, RES_ADRECA, RES_WEB, RES_TELEFON, TRS_DESCRIPCIO FROM  RESTAURANTS R, TRESTAURANTS ");
+            ResultSet rs = stmt.executeQuery("SELECT RES_NOM, RES_ADRECA, RES_WEB, RES_TELEFON, TRS_DESCRIPCIO FROM  RESTAURANTS , TRESTAURANTS WHERE TRS_CODI = RES_TRS_CODI");
             while (rs.next()) {
                 String name = rs.getString("RES_NOM");
                 String address = rs.getString("RES_ADRECA");
