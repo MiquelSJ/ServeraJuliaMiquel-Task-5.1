@@ -1,3 +1,4 @@
+//Classe publica de restaurant amb els seus atributs
 public class Restaurants {
     private String name;
     private String address;

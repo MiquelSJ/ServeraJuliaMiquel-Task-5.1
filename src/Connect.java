@@ -4,21 +4,19 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-/**
- * Reads the students stored in the school.sqlite3 database
- */
+// Classe per connectar a una base de dades i array dels restaturants
 public class Connect {
     public ArrayList readRestaurants() {
         ArrayList arrayRestaurants = new ArrayList();
         try {
-
+            // Per fer la connexió a la base de dades
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con = DriverManager.getConnection("jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari","usuari");
 
 
             Statement stmt = con.createStatement();
 
-
+            // Sentència SQL per treure la informació guardada a la base de dades
             ResultSet rs = stmt.executeQuery("SELECT RES_NOM, RES_ADRECA, RES_WEB, RES_TELEFON, TRS_DESCRIPCIO FROM  RESTAURANTS , TRESTAURANTS WHERE TRS_CODI = RES_TRS_CODI");
             while (rs.next()) {
                 String name = rs.getString("RES_NOM");
